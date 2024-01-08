@@ -21,7 +21,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final notificationListener = noti.BackgroundNotificationListener();
   @override
   void initState() {
     super.initState();
@@ -29,13 +28,14 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> initialize() async {
-    final hasPermission = await notificationListener.hasPermission();
+    final hasPermission =
+        await noti.BackgroundNotificationListener.hasPermission();
     if (hasPermission ?? false) {
       noti.BackgroundNotificationListener.initializeCallState(
           backgroundListener);
       return;
     }
-    await notificationListener.openSettings();
+    await noti.BackgroundNotificationListener.openSettings();
   }
 
   @override

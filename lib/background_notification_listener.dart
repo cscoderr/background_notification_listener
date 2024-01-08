@@ -13,11 +13,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class BackgroundNotificationListener {
-  Future<bool?> hasPermission() async {
+  static Future<bool?> hasPermission() async {
     return BackgroundNotificationListenerPlatform.instance.hasPermission();
   }
 
-  Future<bool?> openSettings() async {
+  static Future<bool?> openSettings() async {
     return BackgroundNotificationListenerPlatform.instance.openSettings();
   }
 
