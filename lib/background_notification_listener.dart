@@ -147,6 +147,10 @@ class Notification {
   /// the raw notifaction data from android
   dynamic _data;
 
+  int? flags;
+
+  bool? isGroup;
+
   Notification({
     this.uniqueId,
     this.key,
@@ -163,6 +167,8 @@ class Notification {
     this.hasLargeIcon,
     this.largeIcon,
     this.canTap,
+    this.flags,
+    this.isGroup,
   });
 
   Map<dynamic, dynamic>? get raw => _data;
@@ -187,6 +193,8 @@ class Notification {
       hasLargeIcon: map['hasLargeIcon'],
       largeIcon: map['largeIcon'],
       canTap: map["canTap"],
+      flags: map["flags"],
+      isGroup: map["isGroup"],
     );
 
     // set the raw data

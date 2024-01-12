@@ -162,6 +162,7 @@ class Notification(context: Context, sbn: StatusBarNotification) {
             map["id"] = sbn.id
             map["canTap"] = sbn.notification.contentIntent != null
             map["flags"] = sbn.notification.flags
+            map["isGroup"] = (sbn.notification.flags and android.app.Notification.FLAG_GROUP_SUMMARY) != 0
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 map["uid"] = sbn.uid
